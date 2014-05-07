@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Image Effort</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="main">
+		<div class="frame" id="frame"></div>
+	</div>
+	<script type="text/javascript">
+	var doc = document.getElementById('frame');
+	var node;
+	for (var i = 0; i < 336; ) {
+		for (var j = 0; j < 292; ) {
+			node=document.createElement("div");
+			node.setAttribute("id","block-"+i+","+j);
+			node.setAttribute("style","width:1px;height:1px;display:inline-block;background-image:url(img/shakeer.jpg);background-position:-"+i+"px -"+j+"px");
+			node.setAttribute("onmouseover","hoverImg(this)");
+			doc.appendChild(node);
+			j+=1;
+		};
+		i+=1;
+	};
+	</script>
+	<script type="text/javascript">
+	// $("#frame").hover(function(){
+	// 	$(".block").hover(function(){
+	// 		alert();
+	// 	});
+	// });
+	function hoverImg (a) {
+ 		var x = parseInt(a.getAttribute('id').split('-')[1].split(',')[0])-5;
+ 		var y = parseInt(a.getAttribute('id').split('-')[1].split(',')[1])-5;
+ 		for (var i = x; i < x+5; i++) {
+ 			for (var j = y; j < y+5; j++) {
+ 				document.getElementById("block-"+i+","+j).style.backgroundImage = "none";
+ 			};
+ 		};
+		// alert(x+y);
+	}
+	</script>
+</body>
+</html>
